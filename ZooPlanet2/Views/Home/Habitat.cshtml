@@ -1,0 +1,34 @@
+﻿@model ZooPlanet2.Models.ViewModels.HabitatViewModel
+@{
+    Layout ="_Layout";
+}
+
+@foreach (var h in Model.Habitats.ToList())
+{
+     <div class="listaHabitat">
+
+            <h1 id="Montañas">Montañas</h1>
+    @foreach (var e in Model.Especies.ToList())
+    {
+       if(e.Habitat == h.Habitat)
+       {
+          
+
+            <ul>
+                <li>
+                    <img src="~/especies/@(e.Id).jpg"/>
+                    <h2>@e.Especie</h2>
+                    <p><label>Clase: </label><a href="~/clases.htm#@e.IdClaseNavigation.Nombre">@e.IdClaseNavigation.Nombre</a></p>
+                    <p><label>Peso: </label>@e.Peso</p>
+                    <p><label>Tamaño: </label>@e.Tamaño</p>
+                    <p>@e.Observaciones</p>
+                </li>       
+            </ul>
+        
+       }
+    }
+    </div>
+}
+
+
+
